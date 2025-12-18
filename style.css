@@ -1,0 +1,738 @@
+/* =========================================
+   1. RESET & DASAR
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth; /* Biar kalau klik link, layarnya meluncur halus */
+}
+
+body {
+  background-color: #f9fafb;
+  color: #333;
+  overflow-x: hidden;
+  /* Supaya kalau klik link menu, tidak ketutup navbar */
+  scroll-padding-top: 100px;
+}
+
+/* =========================================
+   2. NAVBAR / HEADER
+========================================= */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.logo span {
+  color: #4caf50;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #4caf50;
+}
+
+.btn-login {
+  background-color: #4caf50;
+  color: white !important;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* =========================================
+   3. HERO SECTION (Tombol Mulai Membaca)
+========================================= */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Gambar Background */
+  background: url("https://plus.unsplash.com/premium_photo-1664478126966-7daf234eb809?auto=format&fit=crop&q=60&w=1200") center/cover no-repeat;
+  height: 100vh;
+  color: white;
+  text-align: left;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* Gelapkan gambar biar teks kebaca */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 85%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Rata Kiri */
+  gap: 20px;
+  animation: fadeUp 1.2s ease-out forwards;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #eaeaea;
+  max-width: 600px;
+  margin-bottom: 25px;
+}
+
+/* INI TOMBOL "MULAI MEMBACA" YANG KEMARIN HILANG */
+.btn-hero {
+  background: #4caf50;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+.btn-hero:hover {
+  background: #388e3c;
+  transform: translateY(-3px); /* Efek naik dikit pas disorot */
+}
+
+/* Animasi Muncul Pelan */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   4. ARTIKEL SECTION
+========================================= */
+.section {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.artikel-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.artikel-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  width: 300px;
+  padding: 20px;
+  text-align: left;
+  transition: 0.3s;
+  border: 1px solid #eee;
+}
+
+.artikel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.artikel-card h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.artikel-card p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* =========================================
+   5. HALAMAN LOGIN & SIGNUP (HIJAU)
+========================================= */
+.login-section {
+  min-height: 100vh;
+  width: 100%;
+  /* Gradasi Hijau */
+  background: linear-gradient(135deg, #4caf50 0%, #1b5e20 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-container h2 {
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+/* INPUT & SELECT LOGIN (Ukuran Seragam) */
+.login-form input,
+.login-form select {
+  width: 100%;
+  height: 48px;
+  padding: 0 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.login-form input:focus,
+.login-form select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Tombol Submit Login */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #388e3c;
+}
+
+.login-note {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.login-note a {
+  color: #2e7d32;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* =========================================
+   6. FOOTER
+========================================= */
+footer {
+  width: 100%;
+  background: #2e7d32;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  margin-top: auto; /* Biar nempel di bawah */
+}
+
+/* RESPONSIVE (HP) */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero-text h1 { font-size: 2rem; }
+  .section { padding: 60px 5%; }
+}
+
+/* =========================================
+   TAMBAHAN: HILANGKAN TEXT SAAT KLIK CARI
+========================================= */
+
+/* Saat kolom cari diklik (fokus), warnanya jadi transparan (hilang) */
+#inputCari:focus::placeholder {
+  color: transparent;
+}
+
+/* =========================================
+   7. KALKULATOR BMI (CSS BARU)
+========================================= */
+.bmi-section {
+    padding-top: 120px;
+    min-height: 80vh;
+    background: #f4f9f4; /* Latar belakang hijau muda */
+    text-align: center;
+}
+
+.bmi-title {
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.bmi-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.bmi-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* KOTAK FORM & HASIL */
+.bmi-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: left;
+}
+
+.bmi-card.result-card {
+    padding: 0; /* Khusus kartu hasil, padding 0 biar header nempel */
+    width: 400px;
+    overflow: hidden;
+}
+
+/* FORMULIR */
+.bmi-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.bmi-form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.bmi-form input:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.btn-bmi-submit {
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    background: #4caf50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-bmi-submit:hover {
+    background: #388e3c;
+}
+
+/* HASIL PERHITUNGAN */
+.bmi-result-header {
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.bmi-result-header p { margin: 0; font-size: 14px; }
+.bmi-result-header h1 { font-size: 3.5rem; margin: 5px 0; }
+.bmi-result-header h3 { text-transform: uppercase; letter-spacing: 1px; }
+
+.bmi-result-body {
+    padding: 25px;
+    text-align: left;
+    line-height: 1.6;
+    color: #444;
+}
+
+.bmi-result-body p { margin-bottom: 15px; }
+
+.bmi-reset {
+    display: block;
+    text-align: center;
+    padding-bottom: 20px;
+    color: #999;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.bmi-reset:hover { color: #2e7d32; }
+
+/* =========================================
+   8. DASHBOARD USER (PENCARIAN & LAYOUT)
+========================================= */
+.hero-user {
+    height: 50vh; 
+    min-height: 400px;
+}
+
+.text-highlight {
+    color: #4caf50;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 2px black;
+}
+
+.section-title {
+    color: #2e7d32;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.input-search {
+    padding: 12px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+
+.input-kategori {
+    padding: 12px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.kategori-badge {
+    padding: 5px 10px; 
+    border-radius: 10px; 
+    font-size: 12px; 
+    font-weight: bold;
+    display: inline-block;
+}
+
+.badge-gizi { background: #e8f5e9; color: #2e7d32; }
+.badge-medis { background: #e3f2fd; color: #1565c0; }
+.badge-olahraga { background: #fff3e0; color: #ef6c00; }
+
+.btn-small {
+    font-size: 12px;
+    padding: 5px 15px;
+}
+
+.pesan-kosong {
+    display: none; 
+    color: #666; 
+    margin-top: 20px;
+}
+
+.logout-container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.btn-red {
+    background: #e74c3c !important; /* Merah */
+    padding: 10px 30px;
+}
+.btn-red:hover { background: #c0392b !important; }
+
+/* =========================================
+   9. DASHBOARD ADMIN
+========================================= */
+.admin-section {
+    padding-top: 120px; 
+    min-height: 80vh;
+}
+
+.admin-menu-container {
+    margin-top: 40px; 
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    flex-wrap: wrap;
+}
+
+.admin-card {
+    text-align: center; 
+    border: 2px dashed #2e7d32;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.admin-card:hover {
+    background: #f1f8e9;
+    transform: translateY(-5px);
+}
+
+.admin-card h3 { margin-top: 10px; color: #2e7d32; }
+.admin-card p { margin-bottom: 15px; font-size: 14px; color: #666; }
+
+.btn-orange { background: #f39c12 !important; }
+.btn-orange:hover { background: #d35400 !important; }
+
+.btn-blue { background: #3498db !important; }
+.btn-blue:hover { background: #2980b9 !important; }
+
+/* =========================================
+   10. HALAMAN BACA ARTIKEL
+========================================= */
+.read-section {
+    margin-top: 80px; 
+    text-align: left; 
+    max-width: 800px; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding: 20px;
+}
+
+.read-title {
+    color: #2e7d32; 
+    font-size: 2.5rem; 
+    margin-bottom: 20px;
+}
+
+.read-img {
+    width: 100%; 
+    border-radius: 15px; 
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.read-content {
+    font-size: 1.2rem; 
+    line-height: 1.8; 
+    color: #444;
+}
+
+.btn-back {
+    background: #7f8c8d !important; /* Abu-abu */
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 30px;
+}
+.btn-back:hover { background: #95a5a6 !important; }
+
+/* Tombol Edit */
+.btn-yellow {
+    background: #f1c40f !important; /* Kuning Emas */
+    color: white !important;
+}
+.btn-yellow:hover {
+    background: #f39c12 !important; /* Oranye */
+}
+
+/* =========================================
+   12. FORMULIR ADMIN (PERBAIKAN TAMPILAN)
+========================================= */
+.form-container {
+    max-width: 700px;
+    margin: 40px auto; /* Tengah & ada jarak atas */
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: left; /* Teks rata kiri */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Label di atas input */
+.form-label {
+    display: block; /* Wajib biar label turun ke baris sendiri */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Kotak Input agar lebar & rapi */
+.form-input, 
+.form-select, 
+.form-textarea {
+    width: 100%; /* Lebar Penuh */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box; /* Biar gak melebar keluar kotak */
+    background: #fff;
+}
+
+/* Efek saat diklik */
+.form-input:focus, 
+.form-select:focus, 
+.form-textarea:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+.form-textarea {
+    height: 150px; /* Kotak isi lebih tinggi */
+    resize: vertical;
+}
+
+.form-note {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Tombol Simpan & Batal Sejajar */
+.btn-group {
+    display: flex;
+    gap: 15px; /* Jarak antar tombol */
+    margin-top: 30px;
+}
+
+/* Tombol Batal (Abu-abu) */
+.btn-cancel {
+    background-color: #95a5a6 !important;
+    text-align: center;
+    text-decoration: none;
+    flex: 1; /* Biar ukurannya seimbang */
+}
+.btn-cancel:hover { background-color: #7f8c8d !important; }
+
+/* Tombol Simpan (Orange) */
+.btn-orange {
+    background-color: #f39c12 !important;
+    color: white;
+    flex: 1; /* Biar ukurannya seimbang */
+}
+/* =========================================
+   FIX TOMBOL SIMPAN & BATAL (SUPAYA SEJAJAR)
+========================================= */
+
+.btn-group {
+    display: flex;       /* Wajib pakai Flexbox */
+    gap: 20px;           /* Jarak antar tombol */
+    margin-top: 30px;
+    width: 100%;         /* Pastikan memenuhi lebar formulir */
+}
+
+/* Kita atur tombol Simpan (button) dan Batal (a) sekaligus */
+.btn-group button, 
+.btn-group a {
+    flex: 1;             /* Membagi lebar rata 50:50 */
+    height: 50px;        /* Kunci tingginya (PENTING) */
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;        /* Hilangkan border bawaan tombol */
+    cursor: pointer;
+    text-decoration: none;
+    color: white !important;
+    
+    /* Trik biar teks pas di tengah (Vertikal & Horizontal) */
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-sizing: border-box; /* Biar padding gak bikin ukuran beda */
+}
+
+/* Warna Tombol Simpan (Orange) */
+.btn-orange {
+    background-color: #f39c12 !important;
+}
+.btn-orange:hover {
+    background-color: #e67e22 !important;
+}
+
+/* Warna Tombol Batal (Abu-abu) */
+.btn-cancel {
+    background-color: #95a5a6 !important;
+}
+.btn-cancel:hover {
+    background-color: #7f8c8d !important;
+}
+
+/* =========================================
+   FIX TOMBOL AKSI ADMIN (SAMA RATA)
+========================================= */
+
+.card-action-group {
+    display: flex;       /* Aktifkan Flexbox */
+    gap: 5px;            /* Jarak tipis antar tombol */
+    margin-top: 15px;
+    width: 100%;         /* Lebar penuh */
+}
+
+/* Target semua tombol (link) di dalam grup aksi */
+.card-action-group a {
+    flex: 1;             /* KUNCI RAHASIA: Membagi ukuran sama rata (33% masing-masing) */
+    display: flex;       /* Biar ikon/teks di tengah */
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0;      /* Padding atas-bawah */
+    text-align: center;
+    width: 100%;
+}
